@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PO_WIZ_noatatnik.Views.MainWindow"
+        Title="Notatnik"
+        Width="600" Height="750"
+        WindowStartupLocation="CenterScreen">
+
+	<ScrollViewer>
+		<StackPanel Margin="10" Spacing="10">
+
+
+			<TextBlock Text="Tytuł nowej sesji:" FontWeight="Bold"/>
+			<TextBox x:Name="SessionTitleBox" Watermark="Wprowadź tytuł sesji" />
+			<Button Content="Utwórz sesję" Click="CreateSession_Click"/>
+
+			<TextBlock x:Name="CurrentSessionTitle" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
+			<TextBlock x:Name="SessionCreatedAt" FontSize="14"/>
+
+			<Separator/>
+
+			<TextBlock Text="Nowy wpis:" FontWeight="Bold"/>
+			<TextBox x:Name="NoteBox" AcceptsReturn="True" Height="100" Watermark="Wpisz notatkę..." />
+			<Button Content="Dodaj wpis" Click="AddNote_Click"/>
+
+			<TextBlock Text="Wpisy:" FontWeight="Bold"/>
+			<ListBox x:Name="NotesList" Height="150" SelectionChanged="NotesList_SelectionChanged"/>
+
+			<Separator/>
+
+			<TextBlock Text="Załączniki do bieżącego wpisu:" FontWeight="Bold"/>
+			<Button Content="Dodaj załącznik" Click="AddAttachment_Click"/>
+			<ListBox x:Name="AttachmentList" Height="100"/>
+
+			<Separator/>
+
+			<Button Content="Zapisz sesję do bazy danych" Click="SaveToDatabase_Click"/>
+			<Button Content="Wczytaj ostatnią sesję" Click="LoadLastSession_Click"/>
+
+			<TextBlock Text="Dostępne sesje:" FontWeight="Bold"/>
+			<ComboBox x:Name="SessionSelector" Height="30"/>
+			<Button Content="Wczytaj wybraną sesję" Click="LoadSelectedSession_Click"/>
+			<Button Content="Eksportuj PDF" Click="ExportPdf_Click"/>
+
+
+		</StackPanel>
+	</ScrollViewer>
+</Window>
